@@ -54,4 +54,8 @@ This dashboard fetches data from [helldiverstrainingmanual.com](https://helldive
 
 ## License
 
+## TO DO :
+- SECTIONS UI UPDATES - we show styling
+- Implementing timers and animations.
+
 MIT
