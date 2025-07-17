@@ -1,0 +1,15 @@
+.status {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: $secondary-color;
+  }
+
+  .card {
+    border-left: 4px solid $primary-color;
+
+    .card-title {
+      font-weight: bold;
+    }
+  }
+}

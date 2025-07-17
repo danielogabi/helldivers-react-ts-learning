@@ -1,0 +1,45 @@
+.planet-card {
+  border: 1px solid #ddd;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: #aaa;
+  }
+
+  img {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  &__image {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__players,
+  &__biome,
+  &__env,
+  &__progress {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__progress {
+    background-color: #e9ecef;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+}

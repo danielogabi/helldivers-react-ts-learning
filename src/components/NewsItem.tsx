@@ -1,0 +1,23 @@
+import React from 'react';
+
+interface NewsItemProps {
+  title: string;
+  message: string;
+  time: string;
+}
+
+const NewsItem: React.FC<NewsItemProps> = ({ title, message, time }) => {
+  const formattedDate = new Date(time).toLocaleString();
+
+  return (
+    <div className="news-item card mb-3 shadow-sm">
+      <div className="card-body">
+        <h5 className="news-item__title">{title}</h5>
+        <p className="news-item__message">{message}</p>
+        <p className="news-item__time text-muted"><small>{formattedDate}</small></p>
+      </div>
+    </div>
+  );
+};
+
+export default NewsItem;

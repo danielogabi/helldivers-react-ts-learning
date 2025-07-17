@@ -1,0 +1,16 @@
+.news-item {
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  &__message {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  &__time {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+}
