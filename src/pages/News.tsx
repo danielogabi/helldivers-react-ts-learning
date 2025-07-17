@@ -15,7 +15,15 @@ const News: React.FC = () => {
       try {
         const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/news');
         const data = await res.json();
-        setNews(data);
+
+        // Parse the data to convert the `published` field into a valid date
+        const parsedNews = data.map((item: any) => ({
+          title: item.message.split('\n')[0], // Use the first line of the message as the title
+          message: item.message,
+          time: new Date(item.published * 1000).toISOString(), // Convert seconds to milliseconds
+        }));
+
+        setNews(parsedNews);
       } catch (err) {
         console.error('Error fetching news:', err);
       }
