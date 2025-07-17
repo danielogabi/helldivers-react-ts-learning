@@ -9,9 +9,10 @@ const MajorOrderCard: React.FC<MajorOrderCardProps> = ({ desc, rewards }) => {
   return (
     <div className="major-order card mb-3 shadow-sm">
       <div className="card-body">
-        <h5 className="major-order__title">🎯 Major Order</h5>
-        <p className="major-order__desc">{desc}</p>
-        <p className="major-order__rewards"><strong>Rewards:</strong> {rewards}</p>
+        <p className="major-order__desc">{desc || 'No description provided.'}</p>
+        <p className="major-order__rewards">
+          <strong>Rewards:</strong> {rewards || 'No rewards available.'}
+        </p>
       </div>
     </div>
   );

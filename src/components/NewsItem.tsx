@@ -7,6 +7,7 @@ interface NewsItemProps {
 }
 
 const NewsItem: React.FC<NewsItemProps> = ({ title, message, time }) => {
+  // Format the date for display
   const formattedDate = new Date(time).toLocaleString();
 
   return (
@@ -14,7 +15,9 @@ const NewsItem: React.FC<NewsItemProps> = ({ title, message, time }) => {
       <div className="card-body">
         <h5 className="news-item__title">{title}</h5>
         <p className="news-item__message">{message}</p>
-        <p className="news-item__time text-muted"><small>{formattedDate}</small></p>
+        <p className="news-item__time text-muted">
+          <small>{formattedDate}</small>
+        </p>
       </div>
     </div>
   );
