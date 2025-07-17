@@ -1,4 +1,4 @@
-# Helldivers 2 Dashboard
+# Helldivers 2 Dashboard - WORK IN PROGRESS - ETA  5~7 days
 
 A React + TypeScript dashboard for real-time Helldivers 2 war data, planetary info, news, and more.
 
