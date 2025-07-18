@@ -50,7 +50,7 @@ A React + TypeScript dashboard for real-time Helldivers 2 war data, planetary in
 
 ## API
 
-This dashboard fetches data from [helldiverstrainingmanual.com](https://helldiverstrainingmanual.com/api/v1/).
+This dashboard fetches data from [helldiverstrainingmanual.com](https://helldiverstrainingmanual.com/api).
 
 ## License
 
