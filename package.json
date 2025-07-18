@@ -1,8 +1,7 @@
 {
-  "name": "helldivers-react-ts-learning",
+  "name": "helldivers2-dashboard-learning-react-typescript",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://danielogabi.github.io/helldivers-react-ts-learning",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
