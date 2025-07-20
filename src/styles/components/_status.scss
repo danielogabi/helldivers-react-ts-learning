@@ -1,15 +1,49 @@
-.status {
+@use '../abstracts/variables' as vars;
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-medium;
+  padding: vars.$spacing-large;
+  background: vars.$main-background;
+
+  h1,
   h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: $secondary-color;
+    color: vars.$primary-color; // Yellow headings
   }
 
-  .card {
-    border-left: 4px solid $primary-color;
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$spacing-medium;
 
-    .card-title {
-      font-weight: bold;
+    .column {
+      background-color: vars.$secondary-color; // Black background
+      padding: vars.$spacing-medium;
+      border-radius: vars.$border-radius;
+      box-shadow: vars.$box-shadow; // White shadow
+      border: 1px solid vars.$text-color; // White border
+
+      h2 {
+        margin-bottom: vars.$spacing-medium;
+        color: vars.$primary-color; // Yellow headings
+        font-size: vars.$font-size-title;
+      }
+
+      .scroll-section {
+        max-height: 400px; // Limit height
+        overflow-y: auto; // Enable scrolling
+        padding-right: vars.$spacing-small;
+
+        .planet-card {
+          padding: vars.$spacing-small;
+          margin-bottom: vars.$spacing-small;
+          border-radius: vars.$border-radius;
+          box-shadow: vars.$box-shadow; // White shadow
+          border: 1px solid vars.$text-color; // White border
+          color: vars.$text-color; // White text
+        }
+      }
     }
   }
 }

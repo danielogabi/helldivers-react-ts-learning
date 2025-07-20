@@ -1,6 +1,6 @@
 @use '../abstracts/variables' as vars;
 
-.major-order {
+.campaign-card {
   background-color: vars.$secondary-color; // Black background
   padding: vars.$spacing-medium;
   margin-bottom: vars.$spacing-medium;
@@ -9,20 +9,27 @@
   border: 1px solid vars.$text-color; // White border
   color: vars.$text-color; // White text
 
-  &__desc {
+  &__title {
+    font-size: vars.$font-size-large;
+    font-weight: bold;
+    color: vars.$primary-color; // Yellow for headings
+    margin-bottom: vars.$spacing-small;
+  }
+
+  &__faction,
+  &__health,
+  &__players,
+  &__biome,
+  &__status,
+  &__expire {
     font-size: vars.$font-size-medium;
     margin-bottom: vars.$spacing-small;
     color: vars.$text-color; // White text
   }
-
-  &__rewards {
-    font-size: vars.$font-size-medium;
-    color: vars.$primary-color; // Yellow for rewards
-  }
 }
 
-.major-orders-container {
+.campaign-container {
   h2 {
-    color: vars.$text-color;
+    color: vars.$primary-color; // Yellow headings
   }
 }

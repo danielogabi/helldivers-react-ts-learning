@@ -1,0 +1,51 @@
+@use '../abstracts/variables' as vars;
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: vars.$secondary-color; // Use namespace for variables
+  color: vars.$text-color;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: vars.$spacing-medium;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: vars.$spacing-small 0;
+
+      a {
+        color: vars.$primary-color;
+        text-decoration: none;
+        font-size: vars.$font-size-medium;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: vars.$primary-color;
+    font-size: vars.$font-size-large;
+    cursor: pointer;
+    margin-bottom: vars.$spacing-medium;
+  }
+
+  @media (min-width: 992px) {
+    display: none; // Hide side navigation on larger breakpoints
+  }
+}
+
+.btn-nav-main {
+  color: vars.$primary-color !important; // Use namespace for variables
+  border-color: vars.$primary-color !important; // Use namespace for variables
+}

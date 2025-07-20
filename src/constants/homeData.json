@@ -1,0 +1,34 @@
+{
+  "mainInfo": {
+    "headline": "Welcome to the Helldivers 2 Dashboard",
+    "description": [
+      "This is a small HOBBY project for me to improve my skills on typescript and react",
+      "It is a dashboard for Helldivers 2, a game I love. The dashboard provides real-time war data, planetary information depending on the data provided by API responses",
+      "https://helldiverstrainingmanual.com/api"
+    ]
+  },
+  "latestUpdates": {
+    "headline": "Latest Updates (Version 0.2.5) - 21st July 2025",
+    "items": [
+      "UI Theme color to be more inline with Helldivers 2 - updated all pages color scheme",
+      "Integrated Motion library for some custom animations.",
+      "Removed Bootstrap JS dependencies as i plan to use react UI libraries for future updates.",
+      "Updated Navbar to be more responsive and user-friendly.",
+      "Updated Status Page Layout",
+      "Slight Styling Refactoring for better readability and maintainability.",
+      "Added Campaign Card to Status Page for better campaign tracking.",
+      "Added linters to codebase"
+    ]
+  },
+  "futureUpdates": {
+    "headline": "Future Updates TODO",
+    "items": [
+      "Integration with Helldivers 2 API for live data. - currently it is updating data per page refresh and not in a live format",
+      "Improved Information Display - More detailed information on planets, campaigns, and orders.",
+      "Implementing Filtering and Sorting - Allow users to filter and sort data based on various criteria.",
+      "More Styling updates for mobile and desktop",
+      "Adding Progress Indicators - Show progress for ongoing campaigns and orders.",
+      "Improved Error Handling - Better user feedback for API errors and loading states."
+    ]
+  }
+}

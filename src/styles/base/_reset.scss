@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as vars;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,12 @@
 }
 
 body {
-  font-family: $font-stack;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: vars.$font-stack;
+  background-color: vars.$secondary-color; // Black background
+  color: vars.$text-color; // White text
+}
+
+#root,
+html {
+  background: vars.$main-background;
 }
