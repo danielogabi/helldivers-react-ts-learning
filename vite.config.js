@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/helldivers-react-ts-learning/' : '/', // Use GitHub Pages base URL in production
   build: {
     rollupOptions: {
-      external: ['react-router-dom', 'framer-motion'], // Mark react-router-dom and framer-motion as external
+      external: [], // No external modules are marked
     },
   },
 }));
