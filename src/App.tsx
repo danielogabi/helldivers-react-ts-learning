@@ -10,7 +10,7 @@ import PlanetsInfo from './pages/PlanetsInfo';
 
 const App: React.FC = () => {
   return (
-    <Router basename="/helldivers-react-ts-learning">
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
