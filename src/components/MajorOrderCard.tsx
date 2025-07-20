@@ -7,9 +7,11 @@ interface MajorOrderCardProps {
 
 const MajorOrderCard: React.FC<MajorOrderCardProps> = ({ desc, rewards }) => {
   return (
-    <div className="major-order card mb-3 shadow-sm">
-      <div className="card-body">
-        <p className="major-order__desc">{desc || 'No description provided.'}</p>
+    <div className="major-order">
+      <div className="major-order__body">
+        <p className="major-order__desc">
+          {desc || 'No description provided.'}
+        </p>
         <p className="major-order__rewards">
           <strong>Rewards:</strong> {rewards || 'No rewards available.'}
         </p>

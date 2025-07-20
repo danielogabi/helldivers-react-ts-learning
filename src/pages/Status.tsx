@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-
-interface PlanetStatus {
-  index: number;
-  name: string;
-  owner: string;
-  faction: string;
-  health: number;
-  players: number;
-}
+import React, { useEffect, useState, useRef } from 'react';
+import { PlanetStatus } from '../types/types';
+import { motion, useAnimation } from 'framer-motion';
 
 const Status: React.FC = () => {
-  const [activePlanets, setActivePlanets] = useState<PlanetStatus[]>([]);
-  const [inactivePlanets, setInactivePlanets] = useState<PlanetStatus[]>([]);
+  const [planets, setPlanets] = useState<{
+    active: PlanetStatus[];
+    inactive: PlanetStatus[];
+  }>({
+    active: [],
+    inactive: [],
+  });
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,31 +26,41 @@ const Status: React.FC = () => {
           throw new Error('Failed to fetch data from one or more endpoints.');
         }
 
-        const statusJson = await statusRes.json();
-        const infoJson = await infoRes.json();
-        const campaignJson = await campaignRes.json();
+        const [statusJson, infoJson, campaignJson] = await Promise.all([
+          statusRes.json(),
+          infoRes.json(),
+          campaignRes.json(),
+        ]);
 
-        // Merge data from all endpoints
-        const parsed: PlanetStatus[] = statusJson.planetStatus.map((planet: any) => {
-          const planetInfo = infoJson.planetInfos.find((info: any) => info.index === planet.index) || {};
-          const campaignInfo = campaignJson.find((campaign: any) => campaign.planetIndex === planet.index) || {};
+        const parsedPlanets = statusJson.planetStatus.map((planet: any) => {
+          const planetInfo =
+            infoJson.planetInfos.find(
+              (info: any) => info.index === planet.index
+            ) || {};
+          const campaignInfo =
+            campaignJson.find(
+              (campaign: any) => campaign.planetIndex === planet.index
+            ) || {};
 
           return {
             index: planet.index,
-            name: campaignInfo.name || planetInfo.name || `Planet ${planet.index}`, // Prioritize campaign name
+            name:
+              campaignInfo.name || planetInfo.name || `Planet ${planet.index}`,
             owner: planet.owner === 1 ? 'Helldivers' : 'Enemy',
-            faction: campaignInfo.faction || 'N/A', // Use faction from campaign, fallback to "N/A"
+            faction: campaignInfo.faction || 'N/A',
             health: planet.health || 0,
-            players: campaignInfo.players || planet.players || 0, // Prioritize campaign players
+            players: campaignInfo.players || planet.players || 0,
           };
         });
 
-        // Separate active and inactive planets
-        const active = parsed.filter((planet) => planet.faction !== 'N/A');
-        const inactive = parsed.filter((planet) => planet.faction === 'N/A');
+        const active = parsedPlanets.filter(
+          (planet) => planet.faction !== 'N/A'
+        );
+        const inactive = parsedPlanets.filter(
+          (planet) => planet.faction === 'N/A'
+        );
 
-        setActivePlanets(active);
-        setInactivePlanets(inactive);
+        setPlanets({ active, inactive });
       } catch (error) {
         console.error('Failed to fetch status:', error);
         setError('Failed to load planet status. Please try again later.');
@@ -64,75 +72,94 @@ const Status: React.FC = () => {
     fetchStatus();
   }, []);
 
+  const renderPlanetList = (planetList: PlanetStatus[]) => (
+    <div className="scroll-section">
+      {planetList.map((planet) => (
+        <PlanetCard key={planet.index} planet={planet} />
+      ))}
+    </div>
+  );
+
   return (
-    <div className="container my-5">
+    <div className="status-container container">
       <h1 className="mb-4">🌍 Planet Status</h1>
       {loading && <p>Loading status...</p>}
       {error && <div className="alert alert-danger">{error}</div>}
       {!loading && !error && (
-        <>
-          {/* Active Planets Section */}
-          <div className="mb-4">
-            <h2>
-              <button
-                className="btn btn-primary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#activePlanetsCollapse"
-                aria-expanded="false"
-                aria-controls="activePlanetsCollapse"
-              >
-                Active Planets
-              </button>
-            </h2>
-            <div className="collapse" id="activePlanetsCollapse">
-              <ul className="list-group">
-                {activePlanets.map((planet) => (
-                  <li key={planet.index} className="list-group-item">
-                    <div>
-                      <strong>Name:</strong> {planet.name} <br />
-                      <strong>Owner:</strong> {planet.owner} | <strong>Faction:</strong> {planet.faction} <br />
-                      <strong>Players:</strong> {planet.players}
-                    </div>
-                    <span className="badge bg-primary rounded-pill">{planet.health} HP</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <div className="columns">
+          {/* Active Planets */}
+          <motion.div
+            className="column active-planets"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2>Active Planets</h2>
+            {renderPlanetList(planets.active)}
+          </motion.div>
 
-          {/* Inactive Planets Section */}
-          <div className="mb-4">
-            <h2>
-              <button
-                className="btn btn-secondary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#inactivePlanetsCollapse"
-                aria-expanded="false"
-                aria-controls="inactivePlanetsCollapse"
-              >
-                Inactive Planets
-              </button>
-            </h2>
-            <div className="collapse" id="inactivePlanetsCollapse">
-              <ul className="list-group">
-                {inactivePlanets.map((planet) => (
-                  <li key={planet.index} className="list-group-item">
-                    <div>
-                      <strong>Name:</strong> {planet.name} <br />
-                      <strong>Owner:</strong> {planet.owner} | <strong>Faction:</strong> {planet.faction} <br />
-                      <strong>Players:</strong> {planet.players}
-                    </div>
-                    <span className="badge bg-primary rounded-pill">{planet.health} HP</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </>
+          {/* Inactive Planets */}
+          <motion.div
+            className="column inactive-planets"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2>Inactive Planets</h2>
+            {renderPlanetList(planets.inactive)}
+          </motion.div>
+        </div>
       )}
     </div>
+  );
+};
+
+const PlanetCard: React.FC<{ planet: PlanetStatus }> = ({ planet }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.start({ opacity: 0.5, y: 50 });
+    }
+  }, [isVisible, controls]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="planet-card"
+      initial={{ opacity: 0.5, y: 50 }}
+      animate={controls}
+      transition={{ duration: 0.5 }}
+    >
+      <strong>{planet.name}</strong>
+      <p>Owner: {planet.owner}</p>
+      <p>Faction: {planet.faction}</p>
+      <p>Players: {planet.players}</p>
+      <span className="health">{planet.health} HP</span>
+    </motion.div>
   );
 };
 

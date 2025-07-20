@@ -1,0 +1,26 @@
+@use 'sass:map';
+
+$breakpoints: (
+  xs: 0,
+  // Extra small devices
+  sm: 576px,
+  // Small devices
+  md: 768px,
+  // Medium devices
+  lg: 992px,
+  // Large devices
+  xl: 1200px,
+  // Extra large devices
+  xxl: 1400px, // Extra extra large devices
+);
+
+@mixin media-breakpoint($size) {
+  $breakpoint: map.get($breakpoints, $size);
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' is not defined in $breakpoints.";
+  }
+}

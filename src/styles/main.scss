@@ -1,8 +1,12 @@
-@import 'bootstrap/scss/bootstrap'; // 🔼 Acum e sus
-@import 'abstracts/variables';
-@import 'base/reset';
-@import 'components/navbar';
-@import 'pages/status';
-@import 'components/planet-card';
-@import 'components/news-item';
-@import 'components/major-orders';
+@use 'abstracts/variables';
+@use 'abstracts/breakpoints';
+@use 'base/reset';
+@use 'components/navbar';
+@use 'components/planet-card';
+@use 'components/status';
+@use 'components/news-item';
+@use 'components/major-orders';
+@use 'components/side-nav';
+@use 'components/loading-overlay';
+@use 'pages/home';
+@use 'bootstrap/scss/bootstrap';
