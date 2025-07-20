@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as vars;
+
+.home-container {
+  padding: vars.$spacing-large;
+  background-color: vars.$secondary-color; // Black background
+  color: vars.$text-color; // White text
+
+  .home-section {
+    margin-bottom: vars.$spacing-large;
+
+    h1,
+    h2 {
+      color: vars.$primary-color; // Yellow headings
+      margin-bottom: vars.$spacing-medium;
+    }
+
+    p {
+      font-size: vars.$font-size-medium;
+      margin-bottom: vars.$spacing-small;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: vars.$spacing-large;
+
+      li {
+        font-size: vars.$font-size-medium;
+        margin-bottom: vars.$spacing-small;
+        color: vars.$text-color; // White text
+      }
+    }
+  }
+}

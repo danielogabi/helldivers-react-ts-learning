@@ -1,23 +1,15 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/breakpoints' as breakpoints;
+
 .planet-card {
-  border: 1px solid #ddd;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-
-  &:hover {
-    transform: scale(1.02);
-    border-color: #aaa;
-  }
-
-  img {
-    object-fit: cover;
-    height: 200px;
-    width: 100%;
-  }
-
-  .card-body {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
+  background-color: vars.$secondary-color; // Black background
+  padding: vars.$spacing-medium;
+  margin-bottom: vars.$spacing-medium;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$box-shadow; // White shadow
+  border: 1px solid vars.$text-color; // White border
+  color: vars.$text-color; // White text
+  height: 100%;
 
   &__image {
     height: 200px;
@@ -25,21 +17,31 @@
   }
 
   &__title {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: vars.$font-size-large;
+    font-weight: bold;
+    color: vars.$text-color; // White text
   }
 
-  &__players,
-  &__biome,
-  &__env,
-  &__progress {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+  &__details {
+    font-size: vars.$font-size-medium;
+    margin-bottom: vars.$spacing-small;
+    color: vars.$text-color; // White text
   }
 
-  &__progress {
-    background-color: #e9ecef;
-    padding: 0.5rem;
-    border-radius: 4px;
+  &__health {
+    background-color: vars.$primary-color; // Yellow background
+    color: vars.$text-color; // White text
+    padding: vars.$spacing-small vars.$spacing-medium;
+    border-radius: vars.$border-radius;
+  }
+
+  @include breakpoints.media-breakpoint(md) {
+    padding: vars.$spacing-large;
+  }
+}
+
+.planet-info {
+  h2 {
+    color: vars.$primary-color;
   }
 }

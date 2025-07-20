@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewsItem from '../components/NewsItem';
+import '../styles/pages/_news.scss';
 
 interface NewsEntry {
   title: string;
@@ -13,14 +14,15 @@ const News: React.FC = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/news');
+        const res = await fetch(
+          'https://helldiverstrainingmanual.com/api/v1/war/news'
+        );
         const data = await res.json();
 
-        // Parse the data to convert the `published` field into a valid date
         const parsedNews = data.map((item: any) => ({
-          title: item.message.split('\n')[0], // Use the first line of the message as the title
+          title: item.message.split('\n')[0],
           message: item.message,
-          time: new Date(item.published * 1000).toISOString(), // Convert seconds to milliseconds
+          time: new Date(item.published * 1000).toISOString(),
         }));
 
         setNews(parsedNews);
@@ -33,10 +35,15 @@ const News: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">📰 Galactic News</h2>
+    <div className="news-container container">
+      <h2>📰 Galactic News</h2>
       {news.map((item, idx) => (
-        <NewsItem key={idx} title={item.title} message={item.message} time={item.time} />
+        <NewsItem
+          key={idx}
+          title={item.title}
+          message={item.message}
+          time={item.time}
+        />
       ))}
     </div>
   );

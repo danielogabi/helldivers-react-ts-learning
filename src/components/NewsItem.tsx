@@ -13,9 +13,9 @@ const NewsItem: React.FC<NewsItemProps> = ({ title, message, time }) => {
   return (
     <div className="news-item card mb-3 shadow-sm">
       <div className="card-body">
-        <h5 className="news-item__title">{title}</h5>
-        <p className="news-item__message">{message}</p>
-        <p className="news-item__time text-muted">
+        <h5 className="news-item__title">{title}</h5> {/* Ensure title is properly escaped */}
+        <p className="news-item__message">{message}</p> {/* Ensure message is properly escaped */}
+        <p className="news-item__time">
           <small>{formattedDate}</small>
         </p>
       </div>

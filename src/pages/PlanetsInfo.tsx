@@ -9,10 +9,11 @@ const PlanetsInfo: React.FC = () => {
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        const res = await fetch('https://helldiverstrainingmanual.com/api/v1/planets');
+        const res = await fetch(
+          'https://helldiverstrainingmanual.com/api/v1/planets'
+        );
         const data = await res.json();
 
-        // Transformare: convertim array-ul de planet objects într-un array tip Planet[]
         const parsed: Planet[] = Object.values(data);
         setPlanets(parsed);
       } catch (err) {
@@ -26,8 +27,8 @@ const PlanetsInfo: React.FC = () => {
   }, []);
 
   return (
-    <div className="container my-5">
-      <h1 className="mb-4">🪐 Planet Info</h1>
+    <div className="container planet-info my-5">
+      <h2 className="my-5">🪐 Planet Info</h2>
       {loading ? (
         <p>Loading planets...</p>
       ) : (
