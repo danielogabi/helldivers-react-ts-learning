@@ -16,7 +16,8 @@
       "Updated Navbar to be more responsive and user-friendly.",
       "Updated Status Page Layout",
       "Slight Styling Refactoring for better readability and maintainability.",
-      "Added Campaign Card to Status Page for better campaign tracking."
+      "Added Campaign Card to Status Page for better campaign tracking.",
+      "Added linters to codebase"
     ]
   },
   "futureUpdates": {

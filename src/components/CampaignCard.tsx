@@ -36,7 +36,8 @@ const CampaignCard: React.FC<CampaignCardProps> = ({
           <strong>Faction:</strong> {faction}
         </p>
         <p className="campaign-card__health">
-          <strong>Health:</strong> {health} / {maxHealth} ({percentage.toFixed(2)}%)
+          <strong>Health:</strong> {health} / {maxHealth} (
+          {percentage.toFixed(2)}%)
         </p>
         <p className="campaign-card__players">
           <strong>Players:</strong> {players}
@@ -50,7 +51,8 @@ const CampaignCard: React.FC<CampaignCardProps> = ({
         </p>
         {expireDateTime && (
           <p className="campaign-card__expire">
-            <strong>Expires:</strong> {new Date(expireDateTime).toLocaleString()}
+            <strong>Expires:</strong>{' '}
+            {new Date(expireDateTime).toLocaleString()}
           </p>
         )}
       </div>

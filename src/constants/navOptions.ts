@@ -5,10 +5,10 @@ export interface NavOption {
 }
 
 export const navOptions: NavOption[] = [
-  { path: "/", label: "Home", icon: "🏠" },
-  { path: "/status", label: "Status", icon: "🌍" },
-  { path: "/news", label: "News", icon: "📰" },
-  { path: "/campaign", label: "Campaign", icon: "🌌" },
-  { path: "/major-orders", label: "Major Orders", icon: "🎯" },
-  { path: "/planets", label: "Planets", icon: "🪐" },
+  { path: '/', label: 'Home', icon: '🏠' },
+  { path: '/status', label: 'Status', icon: '🌍' },
+  { path: '/news', label: 'News', icon: '📰' },
+  { path: '/campaign', label: 'Campaign', icon: '🌌' },
+  { path: '/major-orders', label: 'Major Orders', icon: '🎯' },
+  { path: '/planets', label: 'Planets', icon: '🪐' },
 ];

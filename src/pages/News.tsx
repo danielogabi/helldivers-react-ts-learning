@@ -14,7 +14,9 @@ const News: React.FC = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/news');
+        const res = await fetch(
+          'https://helldiverstrainingmanual.com/api/v1/war/news'
+        );
         const data = await res.json();
 
         const parsedNews = data.map((item: any) => ({
@@ -33,10 +35,15 @@ const News: React.FC = () => {
   }, []);
 
   return (
-    <div className="news-container">
+    <div className="news-container container">
       <h2>📰 Galactic News</h2>
       {news.map((item, idx) => (
-        <NewsItem key={idx} title={item.title} message={item.message} time={item.time} />
+        <NewsItem
+          key={idx}
+          title={item.title}
+          message={item.message}
+          time={item.time}
+        />
       ))}
     </div>
   );

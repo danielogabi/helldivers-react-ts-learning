@@ -48,12 +48,22 @@ const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
       transition={{ duration: 0.5 }}
     >
       <strong>{planet.name}</strong>
-      {('owner' in planet) && <p>Owner: {planet.owner}</p>} {/* PlanetStatus-specific */}
-      {('faction' in planet) && <p>Faction: {planet.faction}</p>} {/* PlanetStatus-specific */}
-      {('players' in planet) && <p>Players: {planet.players}</p>} {/* PlanetStatus-specific */}
-      {('health' in planet) && <span className="health">{planet.health} HP</span>} {/* PlanetStatus-specific */}
-      {('sector' in planet) && <p>Sector: {planet.sector}</p>} {/* Planet-specific */}
-      {('biome' in planet) && planet.biome && <p>Biome: {planet.biome.description}</p>} {/* Planet-specific */}
+      {'owner' in planet && <p>Owner: {planet.owner}</p>}{' '}
+      {/* PlanetStatus-specific */}
+      {'faction' in planet && <p>Faction: {planet.faction}</p>}{' '}
+      {/* PlanetStatus-specific */}
+      {'players' in planet && <p>Players: {planet.players}</p>}{' '}
+      {/* PlanetStatus-specific */}
+      {'health' in planet && (
+        <span className="health">{planet.health} HP</span>
+      )}{' '}
+      {/* PlanetStatus-specific */}
+      {'sector' in planet && <p>Sector: {planet.sector}</p>}{' '}
+      {/* Planet-specific */}
+      {'biome' in planet && planet.biome && (
+        <p>Biome: {planet.biome.description}</p>
+      )}{' '}
+      {/* Planet-specific */}
     </motion.div>
   );
 };

@@ -13,7 +13,9 @@ const MajorOrders: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://helldiverstrainingmanual.com/api/v1/war/major-orders');
+        const res = await fetch(
+          'https://helldiverstrainingmanual.com/api/v1/war/major-orders'
+        );
         if (!res.ok) {
           throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
         }
@@ -26,7 +28,9 @@ const MajorOrders: React.FC = () => {
         const parsedOrders = data.map((item: any) => ({
           desc: item.setting?.overrideBrief || 'No description available',
           rewards: item.setting?.rewards
-            ? item.setting.rewards.map((r: any) => `${r.amount} units`).join(', ')
+            ? item.setting.rewards
+                .map((r: any) => `${r.amount} units`)
+                .join(', ')
             : 'No rewards available',
         }));
 

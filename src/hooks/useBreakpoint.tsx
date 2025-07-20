@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useBreakpoint = (query: string): boolean => {
   const [matches, setMatches] = useState(false);
@@ -11,10 +11,10 @@ const useBreakpoint = (query: string): boolean => {
     };
 
     setMatches(mediaQuery.matches); // Initial state
-    mediaQuery.addEventListener("change", handleChange);
+    mediaQuery.addEventListener('change', handleChange);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleChange);
+      mediaQuery.removeEventListener('change', handleChange);
     };
   }, [query]);
 

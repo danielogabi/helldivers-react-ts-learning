@@ -3,7 +3,10 @@ import { PlanetStatus } from '../types/types';
 import { motion, useAnimation } from 'framer-motion';
 
 const Status: React.FC = () => {
-  const [planets, setPlanets] = useState<{ active: PlanetStatus[]; inactive: PlanetStatus[] }>({
+  const [planets, setPlanets] = useState<{
+    active: PlanetStatus[];
+    inactive: PlanetStatus[];
+  }>({
     active: [],
     inactive: [],
   });
@@ -30,12 +33,19 @@ const Status: React.FC = () => {
         ]);
 
         const parsedPlanets = statusJson.planetStatus.map((planet: any) => {
-          const planetInfo = infoJson.planetInfos.find((info: any) => info.index === planet.index) || {};
-          const campaignInfo = campaignJson.find((campaign: any) => campaign.planetIndex === planet.index) || {};
+          const planetInfo =
+            infoJson.planetInfos.find(
+              (info: any) => info.index === planet.index
+            ) || {};
+          const campaignInfo =
+            campaignJson.find(
+              (campaign: any) => campaign.planetIndex === planet.index
+            ) || {};
 
           return {
             index: planet.index,
-            name: campaignInfo.name || planetInfo.name || `Planet ${planet.index}`,
+            name:
+              campaignInfo.name || planetInfo.name || `Planet ${planet.index}`,
             owner: planet.owner === 1 ? 'Helldivers' : 'Enemy',
             faction: campaignInfo.faction || 'N/A',
             health: planet.health || 0,
@@ -43,8 +53,12 @@ const Status: React.FC = () => {
           };
         });
 
-        const active = parsedPlanets.filter((planet) => planet.faction !== 'N/A');
-        const inactive = parsedPlanets.filter((planet) => planet.faction === 'N/A');
+        const active = parsedPlanets.filter(
+          (planet) => planet.faction !== 'N/A'
+        );
+        const inactive = parsedPlanets.filter(
+          (planet) => planet.faction === 'N/A'
+        );
 
         setPlanets({ active, inactive });
       } catch (error) {
@@ -67,7 +81,7 @@ const Status: React.FC = () => {
   );
 
   return (
-    <div className="status-container">
+    <div className="status-container container">
       <h1 className="mb-4">🌍 Planet Status</h1>
       {loading && <p>Loading status...</p>}
       {error && <div className="alert alert-danger">{error}</div>}

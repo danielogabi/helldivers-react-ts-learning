@@ -8,7 +8,8 @@
   .home-section {
     margin-bottom: vars.$spacing-large;
 
-    h1, h2 {
+    h1,
+    h2 {
       color: vars.$primary-color; // Yellow headings
       margin-bottom: vars.$spacing-medium;
     }

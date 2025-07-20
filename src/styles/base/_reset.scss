@@ -12,6 +12,7 @@ body {
   color: vars.$text-color; // White text
 }
 
-#root, html {
-  background:vars.$main-background;
+#root,
+html {
+  background: vars.$main-background;
 }

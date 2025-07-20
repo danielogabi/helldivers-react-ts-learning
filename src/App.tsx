@@ -41,7 +41,9 @@ const App: React.FC = () => {
   );
 };
 
-const RoutesWithAnimation: React.FC<{ setLoading: React.Dispatch<React.SetStateAction<boolean>> }> = ({ setLoading }) => {
+const RoutesWithAnimation: React.FC<{
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setLoading }) => {
   const location = useLocation();
 
   return (
@@ -98,8 +100,8 @@ const RoutesWithAnimation: React.FC<{ setLoading: React.Dispatch<React.SetStateA
   );
 };
 
-const PageTransition: React.FC<{ 
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>; 
+const PageTransition: React.FC<{
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode; // Explicitly define the children prop
 }> = ({ setLoading, children }) => {
   React.useEffect(() => {

@@ -9,7 +9,9 @@ const PlanetsInfo: React.FC = () => {
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        const res = await fetch('https://helldiverstrainingmanual.com/api/v1/planets');
+        const res = await fetch(
+          'https://helldiverstrainingmanual.com/api/v1/planets'
+        );
         const data = await res.json();
 
         const parsed: Planet[] = Object.values(data);
