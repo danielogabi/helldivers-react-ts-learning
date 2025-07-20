@@ -42,7 +42,7 @@ const MajorOrders: React.FC = () => {
 
   return (
     <div className="container major-orders-container mt-4">
-      <h2 class="my-5">🎯 Major Orders</h2>
+      <h2 className="my-5">🎯 Major Orders</h2>
       {error && <div className="alert alert-danger">Error: {error}</div>}
       {orders.length === 0 && !error && <div>No major orders available.</div>}
       {orders.map((order, index) => (

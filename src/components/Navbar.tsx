@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     <>
       <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-dark px-3">
         <button
-          className="btn btn-primary me-3 d-lg-none"
+          className="btn btn-nav-main me-3 d-lg-none"
           onClick={toggleSideNav}
           aria-expanded={isSideNavOpen}
           aria-controls="side-nav"
