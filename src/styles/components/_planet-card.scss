@@ -1,7 +1,20 @@
 .planet-card {
-  border: 1px solid #ddd;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem; // Add consistent spacing between cards
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-in-out; // Smooth opacity transition
+  position: relative; // Ensure cards are positioned relative to avoid stacking issues
+
+  .health {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 4px;
+  }
 
   &:hover {
     transform: scale(1.02);

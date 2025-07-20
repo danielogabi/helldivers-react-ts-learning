@@ -12,7 +12,6 @@ const PlanetsInfo: React.FC = () => {
         const res = await fetch('https://helldiverstrainingmanual.com/api/v1/planets');
         const data = await res.json();
 
-        // Transformare: convertim array-ul de planet objects într-un array tip Planet[]
         const parsed: Planet[] = Object.values(data);
         setPlanets(parsed);
       } catch (err) {

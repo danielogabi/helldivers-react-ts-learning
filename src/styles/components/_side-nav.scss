@@ -1,0 +1,44 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: $secondary-color;
+  color: white;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 1rem 0;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: $primary-color;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    display: none; // Hide side navigation on larger breakpoints
+  }
+}
