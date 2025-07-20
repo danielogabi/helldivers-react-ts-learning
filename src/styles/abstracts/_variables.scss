@@ -1,3 +1,29 @@
-$primary-color: #ffcc00;
-$secondary-color: #222831;
+// Colors
+$primary-color: #ffcc00; // Yellow for headings
+$secondary-color: #000000; // Black for page background
+$accent-color: #00aaff; // Optional accent blue
+$text-color: #ffffff; // White for card text and borders
+$error-color: #ff4d4d; // Error red
+$border-white: #ffffff; // White border for cards
+$main-background: #000;
+
+// Font stack
 $font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Spacing
+$spacing-unit: 1rem; // Base spacing unit
+$spacing-small: 0.5rem;
+$spacing-medium: 1.5rem;
+$spacing-large: 2rem;
+
+// Font sizes
+$font-size-small: 0.875rem;
+$font-size-medium: 1rem;
+$font-size-large: 1.25rem;
+$font-size-title: 2rem;
+
+// Border radius
+$border-radius: 4px;
+
+// Shadows
+$box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1); // White shadow for cards

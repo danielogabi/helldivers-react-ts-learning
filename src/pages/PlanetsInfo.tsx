@@ -25,8 +25,8 @@ const PlanetsInfo: React.FC = () => {
   }, []);
 
   return (
-    <div className="container my-5">
-      <h1 className="mb-4">🪐 Planet Info</h1>
+    <div className="container planet-info my-5">
+      <h2 className="my-5">🪐 Planet Info</h2>
       {loading ? (
         <p>Loading planets...</p>
       ) : (

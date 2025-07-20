@@ -1,8 +1,22 @@
-.navbar {
-  background-color: $secondary-color !important;
+@use '../abstracts/variables' as vars;
 
-  .navbar-brand {
+.navbar {
+  background-color: vars.$secondary-color;
+  padding: vars.$spacing-medium;
+  border-bottom: 2px solid vars.$border-white;
+
+  &__brand {
     font-weight: bold;
-    color: $primary-color !important;
+    color: vars.$primary-color;
+    font-size: vars.$font-size-title;
+  }
+
+  &__link {
+    color: vars.$text-color;
+    font-size: vars.$font-size-medium;
+
+    &:hover {
+      color: vars.$primary-color;
+    }
   }
 }

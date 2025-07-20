@@ -29,8 +29,8 @@ const CampaignCard: React.FC<CampaignCardProps> = ({
   expireDateTime,
 }) => {
   return (
-    <div className="campaign-card card mb-3 shadow-sm">
-      <div className="card-body">
+    <div className="campaign-card">
+      <div className="campaign-card__body">
         <h5 className="campaign-card__title">{name}</h5>
         <p className="campaign-card__faction">
           <strong>Faction:</strong> {faction}

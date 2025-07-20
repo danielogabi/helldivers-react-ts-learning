@@ -1,7 +1,6 @@
 @use '../abstracts/variables' as vars;
-@use '../abstracts/breakpoints' as breakpoints;
 
-.planet-card {
+.campaign-card {
   background-color: vars.$secondary-color; // Black background
   padding: vars.$spacing-medium;
   margin-bottom: vars.$spacing-medium;
@@ -9,39 +8,28 @@
   box-shadow: vars.$box-shadow; // White shadow
   border: 1px solid vars.$text-color; // White border
   color: vars.$text-color; // White text
-  height: 100%;
-
-  &__image {
-    height: 200px;
-    object-fit: cover;
-  }
 
   &__title {
     font-size: vars.$font-size-large;
     font-weight: bold;
-    color: vars.$text-color; // White text
+    color: vars.$primary-color; // Yellow for headings
+    margin-bottom: vars.$spacing-small;
   }
 
-  &__details {
+  &__faction,
+  &__health,
+  &__players,
+  &__biome,
+  &__status,
+  &__expire {
     font-size: vars.$font-size-medium;
     margin-bottom: vars.$spacing-small;
     color: vars.$text-color; // White text
   }
-
-  &__health {
-    background-color: vars.$primary-color; // Yellow background
-    color: vars.$text-color; // White text
-    padding: vars.$spacing-small vars.$spacing-medium;
-    border-radius: vars.$border-radius;
-  }
-
-  @include breakpoints.media-breakpoint(md) {
-    padding: vars.$spacing-large;
-  }
 }
 
-.planet-info {
-  h2 {
-    color: vars.$primary-color;
-  }
+.campaign-container  {
+    h2 {
+      color: vars.$primary-color; // Yellow headings
+    }
 }

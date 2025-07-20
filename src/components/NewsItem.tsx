@@ -15,7 +15,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ title, message, time }) => {
       <div className="card-body">
         <h5 className="news-item__title">{title}</h5>
         <p className="news-item__message">{message}</p>
-        <p className="news-item__time text-muted">
+        <p className="news-item__time">
           <small>{formattedDate}</small>
         </p>
       </div>

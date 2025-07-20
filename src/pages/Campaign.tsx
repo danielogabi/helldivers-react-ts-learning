@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CampaignCard from '../components/CampaignCard';
+import '../styles/components/_campaign-card.scss';
 
 interface CampaignData {
   planetIndex: number;
@@ -45,8 +46,8 @@ const Campaign: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mt-4">
-      <h2>🌌 Active Campaigns</h2>
+    <div className="campaign-container container mt-4">
+      <h2 class="my-5">🌌 Active Campaigns</h2>
       {error && <div className="alert alert-danger">Error: {error}</div>}
       {campaigns.length === 0 && !error && <div>No active campaigns available.</div>}
       {campaigns.map((campaign) => (

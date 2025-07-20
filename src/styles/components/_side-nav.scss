@@ -1,26 +1,28 @@
+@use '../abstracts/variables' as vars;
+
 .side-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: $secondary-color;
-  color: white;
+  background-color: vars.$secondary-color; // Use namespace for variables
+  color: vars.$text-color;
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  padding: vars.$spacing-medium;
 
   ul {
     list-style: none;
     padding: 0;
 
     li {
-      margin: 1rem 0;
+      margin: vars.$spacing-small 0;
 
       a {
-        color: $primary-color;
+        color: vars.$primary-color;
         text-decoration: none;
-        font-size: 1.2rem;
+        font-size: vars.$font-size-medium;
 
         &:hover {
           text-decoration: underline;
@@ -32,10 +34,10 @@
   .close-btn {
     background: none;
     border: none;
-    color: $primary-color;
-    font-size: 1.5rem;
+    color: vars.$primary-color;
+    font-size: vars.$font-size-large;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: vars.$spacing-medium;
   }
 
   @media (min-width: 992px) {

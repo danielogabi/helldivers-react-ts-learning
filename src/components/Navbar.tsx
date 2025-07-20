@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+      <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-dark px-3">
         <button
           className="btn btn-primary me-3 d-lg-none"
           onClick={toggleSideNav}

@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as vars;
+
+.news-container {
+  background-color: vars.$secondary-color; // Black background
+  padding: vars.$spacing-large;
+  border-radius: vars.$border-radius;
+
+  h2 {
+    color: vars.$primary-color; // Yellow headings
+    font-size: vars.$font-size-title;
+    margin-bottom: vars.$spacing-medium;
+  }
+
+  .news-item {
+    margin-bottom: vars.$spacing-medium;
+  }
+}

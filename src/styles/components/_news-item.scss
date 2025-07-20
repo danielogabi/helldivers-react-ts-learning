@@ -1,16 +1,30 @@
+@use '../abstracts/variables' as vars;
+
 .news-item {
+  background-color: vars.$secondary-color !important; // Black background
+  padding: vars.$spacing-medium !important;
+  margin-bottom: vars.$spacing-medium !important;
+  border-radius: vars.$border-radius !important;
+  box-shadow: vars.$box-shadow !important; // White shadow
+  border: 1px solid vars.$text-color !important; // White border
+  color: vars.$text-color !important; // White text
+
   &__title {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: vars.$font-size-large !important;
+    font-weight: bold !important;
+    color: vars.$primary-color !important; // Yellow for headings
+    margin-bottom: vars.$spacing-small !important;
   }
 
   &__message {
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
+    font-size: vars.$font-size-medium !important;
+    margin-bottom: vars.$spacing-small !important;
+    color: vars.$text-color !important; // White text
   }
 
   &__time {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+    font-size: vars.$font-size-small !important;
+    color: vars.$text-color !important; // White text
+    opacity: 0.8 !important; // Slightly faded
   }
 }

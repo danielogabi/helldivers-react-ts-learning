@@ -1,3 +1,28 @@
+@use '../abstracts/variables' as vars;
+
 .major-order {
-    margin: 2em auto;
+  background-color: vars.$secondary-color; // Black background
+  padding: vars.$spacing-medium;
+  margin-bottom: vars.$spacing-medium;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$box-shadow; // White shadow
+  border: 1px solid vars.$text-color; // White border
+  color: vars.$text-color; // White text
+
+  &__desc {
+    font-size: vars.$font-size-medium;
+    margin-bottom: vars.$spacing-small;
+    color: vars.$text-color; // White text
+  }
+
+  &__rewards {
+    font-size: vars.$font-size-medium;
+    color: vars.$primary-color; // Yellow for rewards
+  }
+}
+
+.major-orders-container {
+    h2 {
+      color: vars.$text-color;
+    }
 }
