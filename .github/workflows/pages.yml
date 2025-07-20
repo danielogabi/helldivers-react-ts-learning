@@ -33,6 +33,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    environment: # Add this section
+      name: github-pages
 
     steps:
       - name: Deploy to GitHub Pages
